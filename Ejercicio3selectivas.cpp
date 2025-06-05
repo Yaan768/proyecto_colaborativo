@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-
 int main() {
     float	 lado, apotema, perimetro, area;
     cout << "Ingrese la longitud del lado del pentagono: ";
