@@ -4,40 +4,46 @@ using namespace std;
 double calcularCreditoAumentado(int tipoTarjeta, double creditoActual) {
     double porcentajeAumento;
 
-    // Determinar el porcentaje de aumento segÃºn el tipo de tarjeta
+    // Determinar el porcentaje de aumento según el tipo de tarjeta
     switch (tipoTarjeta) {
         case 1:
-            porcentajeAumento = 0.25; // 25% de aumento
+            porcentajeAumento = 0.25; // 25%
             break;
         case 2:
-            porcentajeAumento = 0.35; // 35% de aumento
+            porcentajeAumento = 0.35; // 35%
             break;
         case 3:
-            porcentajeAumento = 0.40; // 40% de aumento
+            porcentajeAumento = 0.40; // 40%
             break;
         default:
-            porcentajeAumento = 0.50; // 50% de aumento para cualquier otro tipo
+            porcentajeAumento = 0.50; // 50% para otros
             break;
     }
-	
-porcentajeAumento = porcentajeAumento * creditoActual;
-    double creditoAumentado = creditoActual + porcentajeAumento;
-    return creditoAumentado;
+
+    // Calcular el nuevo crédito con el aumento
+    return creditoActual + (creditoActual * porcentajeAumento);
 }
 
 int main() {
     int tipoTarjeta;
     double creditoActual;
 
-
     cout << "Introduce el tipo de tarjeta (1, 2, 3 o cualquier otro): ";
     cin >> tipoTarjeta;
-    cout << "Introduce el credito actual: ";
+
+    cout << "Introduce el crédito actual: ";
     cin >> creditoActual;
+
+    // Validación simple
+    if (creditoActual < 0) {
+        cout << "Error: El crédito no puede ser negativo." << endl;
+        return 1;
+    }
 
     double nuevoCredito = calcularCreditoAumentado(tipoTarjeta, creditoActual);
 
-    cout << "El nuevo credito aumentado es: " << nuevoCredito << endl;
+    cout << "El nuevo crédito aumentado es: $" << nuevoCredito << endl;
 
     return 0;
 }
+
